@@ -14,8 +14,6 @@ export default function TaskTemplate({ task, onToggle, onDelete, onEdit }) {
     if (editedText.trim()) {
       onEdit(task.id, editedText);
       setIsEditing(false);
-    } else {
-      alert("Task cannot be empty!");
     }
   };
 
