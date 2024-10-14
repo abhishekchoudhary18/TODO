@@ -1,12 +1,23 @@
+import { useState } from "react";
 import TaskInput from "./Components/TaskInput";
 
 function App() {
-  const onAddTask = (task) => {
-    console.log(task);
+  const [tasks, setTasks] = useState([]);
+
+  const addTask = (taskText) => {
+    const newTask = {
+      id: Date.now(),
+      text: taskText,
+      completed: false,
+      isEditing: false,
+    };
+    setTasks([...tasks, newTask]);
   };
+
   return (
     <>
-      <TaskInput onAddTask={onAddTask} />
+      <TaskInput onAddTask={addTask} />
+      {tasks.map((task) => JSON.stringify(task))}
     </>
   );
 }
